@@ -13,16 +13,6 @@ pipeline {
                 echo "checkout complete"
             }
         }
-     } #new
-} #new 
- #       stage('Build docker image'){
- #           steps{
- #               script{
- #                   echo "entered in build docker image phase"
- #                   sh 'docker build -t theakshaywagh/image_retrieval_platform .'
- #                   echo "build docker image phase completed"
- #               }
- #           }
- #       }
- #   }   
-#}     
+     }
+}  
+ 
