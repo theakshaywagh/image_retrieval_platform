@@ -6,8 +6,23 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/theakshaywagh/edu-image-automation.git']]])
-             
+                echo "Now in maven build phase" 
+                pip install -r requirements.txt
+		python tests.py
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/theakshaywagh/image_retrieval_platform.git']]])
+                echo "checkout complete"
             }
-     }
-}
+        }
+     } #new
+} #new 
+ #       stage('Build docker image'){
+ #           steps{
+ #               script{
+ #                   echo "entered in build docker image phase"
+ #                   sh 'docker build -t theakshaywagh/image_retrieval_platform .'
+ #                   echo "build docker image phase completed"
+ #               }
+ #           }
+ #       }
+ #   }   
+#}     
